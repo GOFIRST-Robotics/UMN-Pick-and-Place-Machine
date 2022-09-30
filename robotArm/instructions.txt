@@ -1,0 +1,12 @@
+{"cmd":"lmove", "x":100, "y":130, "rel":0, "vel":100}
+{"cmd":"lmove", "z":10, "rel":0, "vel":100}
+{"cmd":"lmove", "z":100, "rel":0, "vel":100}
+{"cmd":"lmove", "x":120, "y":100, "rel":0, "vel":100}
+{"cmd":"lmove", "z":10, "rel":0, "vel":100}
+{"cmd":"lmove", "z":100, "rel":0, "vel":100}
+{"cmd":"lmove", "x":125, "y":115, "rel":0, "vel":100}
+{"cmd":"lmove", "z":10, "rel":0, "vel":100}
+{"cmd":"lmove", "z":100, "rel":0, "vel":100}
+{"cmd":"lmove", "x":100, "y":100, "rel":0, "vel":100}
+{"cmd":"lmove", "z":10, "rel":0, "vel":100}
+{"cmd":"lmove", "z":100, "rel":0, "vel":100}
