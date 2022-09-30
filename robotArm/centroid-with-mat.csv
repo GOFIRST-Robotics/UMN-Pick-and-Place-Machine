@@ -1,0 +1,5 @@
+﻿Designator,Mid X,Mid Y,Layer,Rotation,Start mat x,Start mat y
+C1,100mm,130mm,T,270,0,0
+C2,120mm,100mm,T,0,10,0
+C3,125mm,115mm,T,180,20,0
+R2,100mm,100mm,T,90,30,0
