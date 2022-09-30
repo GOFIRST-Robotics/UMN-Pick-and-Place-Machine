@@ -21,7 +21,8 @@ def pickup_next_part():
     # TODO: HERE WE WANT TO MOVE TO THE NEXT PART ON THE MAT/TRAY (William started code for this?)
     # Lower down to the pcb
     instructions.write("{" + f'"cmd":"lmove", "z":{lowered_z}, "rel":0, "vel":{velocity}' + "}\n")
-    # TODO: HERE WE WANT TO ENABLE THE SUCTION
+    # Enable the Suction
+    instructions.write("{" + f'"cmd":"output", "out0":1' + "}\n")
     # Raise back up
     instructions.write("{" + f'"cmd":"lmove", "z":{raised_z}, "rel":0, "vel":{velocity}' + "}\n")
 
@@ -35,6 +36,7 @@ for row in csvReader:
     instructions.write("{" + f'"cmd":"lmove", "x":{x_value}, "y":{y_value}, "rel":0, "vel":{velocity}' + "}\n")
     # Lower down to the pcb
     instructions.write("{" + f'"cmd":"lmove", "z":{lowered_z}, "rel":0, "vel":{velocity}' + "}\n")
-    # TODO: HERE WE WANT TO DISABLE THE SUCTION
+    # Disable the Suction
+    instructions.write("{" + f'"cmd":"output", "out0":0' + "}\n")
     # Raise back up
     instructions.write("{" + f'"cmd":"lmove", "z":{raised_z}, "rel":0, "vel":{velocity}' + "}\n")
