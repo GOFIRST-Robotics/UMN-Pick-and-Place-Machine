@@ -4,8 +4,8 @@ import csv
 # Velocity of the arm measured in mm/s
 velocity = 100
 
-raised_z = 100  # TODO: Configure this!
-lowered_z = 10  # TODO: Configure this!
+raised_z = 100  # TODO: Configure this through actual testing!
+lowered_z = 10  # TODO: Configure this through actual testing!
 
 # Access our .csv and .txt files
 csv_file = open('centroid.csv')
