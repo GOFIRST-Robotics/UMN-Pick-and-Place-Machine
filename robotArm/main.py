@@ -1,7 +1,7 @@
 # Import the csv module
 import csv
 import starting_mat
-from robotArm.dorna2 import Dorna
+from dorna2 import Dorna
 
 robot = Dorna()
 robot.connect("10.0.0.10")  # connect to the robot server at the specified IP address
