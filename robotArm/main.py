@@ -1,6 +1,10 @@
 # Import the csv module
 import csv
 import starting_mat
+from robotArm.dorna2 import Dorna
+
+robot = Dorna()
+robot.connect("10.0.0.10")  # connect to the robot server at the specified IP address
 
 # Velocity of the arm measured in mm/s
 velocity = 100
@@ -19,7 +23,6 @@ csvReader = csv.reader(csv_file, delimiter=',')
 csv_labels = {"x": 1, "y": 2, "rotation": 4, "start_x": 5, "start_y": 6}
 
 
-# TODO: This method is a WIP
 def pickup_next_part():
     start_x = row[csv_labels["start_x"]]
     start_y = row[csv_labels["start_y"]]
@@ -47,3 +50,7 @@ for row in csvReader:
     instructions.write("{" + f'"cmd":"output", "out0":0' + "}\n")
     # Raise back up
     instructions.write("{" + f'"cmd":"lmove", "z":{raised_z}, "rel":0, "vel":{velocity}' + "}\n")
+
+robot.play_script(script_path="instructions.txt")
+
+robot.close()  # always close the socket when you are done
