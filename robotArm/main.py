@@ -4,14 +4,14 @@ import starting_mat
 from dorna2 import Dorna
 
 robot = Dorna()
-robot.connect("10.0.0.10")  # connect to the robot server at the specified IP address
+robot.connect("169.254.63.192")  # connect to the robot server at the specified IP address
 
 # Velocity of the arm measured in mm/s
 velocity = 100
 
-raised_z = 100  # TODO: Configure this through actual testing!
-lowered_z = 10  # TODO: Configure this through actual testing!
-shift_amount = (500, 0)
+raised_z = 150  # TODO: Configure this through actual testing!
+lowered_z = 50  # TODO: Configure this through actual testing!
+shift_amount = (0, 300)
 
 starting_mat.add_mat_positions("centroid.csv", "centroid-with-mat.csv")
 
