@@ -1,0 +1,2 @@
+{"cmd":"lmove", "z":50, "rel":1, "vel":100}
+{"cmd":"output", "out0":1}
