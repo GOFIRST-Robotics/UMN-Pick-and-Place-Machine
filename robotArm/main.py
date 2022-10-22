@@ -4,7 +4,7 @@ import starting_mat  # this is the code that William wrote
 from dorna2 import Dorna  # this is the dorna2 python API
 
 robot = Dorna()  # Create a new instance of a "Dorna" object
-robot_ip_address = "169.254.63.192"  # Specify the ip address to connect to
+robot_ip_address = "10.164.161.152"  # Specify the ip address to connect to
 
 # Velocity of the arm measured in mm/s
 velocity = 100
