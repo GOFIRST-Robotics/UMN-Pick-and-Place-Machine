@@ -17,7 +17,6 @@ starting_mat.add_mat_positions("centroid.csv", "centroid-with-mat.csv")
 
 # Access our .csv and .txt files
 csv_file = open("centroid-with-mat.csv")
-instructions = open("instructions.txt", "w")
 
 # Configure how to read our .csv file
 csvReader = csv.reader(csv_file, delimiter=',')
@@ -28,36 +27,42 @@ def pickup_next_part():
     start_x = str(int(row[csv_labels["start_x"]]) + shift_amount[0])
     start_y = str(int(row[csv_labels["start_y"]]) + shift_amount[1])
     # Move to the next part on the mat
-    instructions.write("{" + f'"cmd":"lmove", "x":{start_x}, "y":{start_y}, "rel":0, "vel":{velocity}' + "}\n")
+    robot.play(cmd="lmove", x=start_x, y=start_y, rel=0, vel=velocity)
     # Lower down to the pcb
-    instructions.write("{" + f'"cmd":"lmove", "z":{lowered_z}, "rel":0, "vel":{velocity}' + "}\n")
+    robot.play(cmd="lmove", z=lowered_z, rel=0, vel=velocity)
     # Enable the Suction
-    instructions.write("{" + f'"cmd":"output", "out0":1' + "}\n")
+    robot.play(cmd="output", out0=1)
     # Raise back up
-    instructions.write("{" + f'"cmd":"lmove", "z":{raised_z}, "rel":0, "vel":{velocity}' + "}\n")
+    robot.play(cmd="lmove", z=raised_z, rel=0, vel=velocity)
 
 
 next(csvReader)  # We want to skip the first row of the .csv file since it is just the column labels
-instructions.write("{" + f'"cmd":"motor", "motor":1' + "}\n")
-
-for row in csvReader:
-    pickup_next_part()
-    x_value = str(int(row[csv_labels["x"]].replace("mm", "")) + shift_amount[0])  # Remove the 'mm' label from the value
-    y_value = str(int(row[csv_labels["y"]].replace("mm", "")) + shift_amount[1])  # Remove the 'mm' label from the value
-    # Move to specifed (x, y) position of the component
-    instructions.write("{" + f'"cmd":"lmove", "x":{x_value}, "y":{y_value}, "rel":0, "vel":{velocity}' + "}\n")
-    # Lower down to the pcb
-    instructions.write("{" + f'"cmd":"lmove", "z":{lowered_z}, "rel":0, "vel":{velocity}' + "}\n")
-    # Disable the Suction
-    instructions.write("{" + f'"cmd":"output", "out0":0' + "}\n")
-    # Raise back up
-    instructions.write("{" + f'"cmd":"lmove", "z":{raised_z}, "rel":0, "vel":{velocity}' + "}\n")
 
 if not robot.connect(robot_ip_address):  # (Attempt to) Connect to the robot server at the specified IP address
     print("ERROR: Could not find the dorna2 robot at port:", robot_ip_address)
-    print("Stopping the script now")
 else:
     print("Successfully connected to the dorna2 at port:", robot_ip_address)
-    print("Executing commands now")
-    robot.play_script(script_path="instructions.txt")  # Instruct the robot to execute these commands
+
+    # Disable the alarm mode
+    if robot.get_alarm():
+        robot.set_alarm(0)
+        print("Disabling the alarm")
+
+    robot.set_motor(1)  # Turn on the motors
+    print("Turning on the motors")
+
+    for row in csvReader:
+        pickup_next_part()
+        x_value = str(int(row[csv_labels["x"]].replace("mm", "")) + shift_amount[0])  # Remove the 'mm' label
+        y_value = str(int(row[csv_labels["y"]].replace("mm", "")) + shift_amount[1])  # Remove the 'mm' label
+        # Move to specifed (x, y) position of the component
+        robot.play(cmd="lmove", x=x_value, y=y_value, rel=0, vel=velocity)
+        # Lower down to the pcb
+        robot.play(cmd="lmove", z=lowered_z, rel=0, vel=velocity)
+        # Disable the Suction
+        robot.play(cmd="output", out0=0)
+        # Raise back up
+        robot.play(cmd="lmove", z=raised_z, rel=0, vel=velocity)
+
 robot.close()  # Always close the socket when you are done :)
+print("Script is over now")

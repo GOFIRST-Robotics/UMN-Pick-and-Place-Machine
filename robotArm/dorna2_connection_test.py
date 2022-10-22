@@ -5,10 +5,23 @@ robot_ip_address = "10.164.161.152"  # Specify the ip address to connect to
 
 if not robot.connect(robot_ip_address):  # (Attempt to) Connect to the robot server at the specified IP address
     print("ERROR: Could not find the dorna2 robot at port:", robot_ip_address)
-    print("Stopping the script now")
 else:
     print("Successfully connected to the dorna2 at port:", robot_ip_address)
+
+    # Disable the alarm mode
+    if robot.get_alarm():
+        robot.set_alarm(0)
+        print("Disabling the alarm")
+
+    robot.set_motor(1)  # Turn on the motors
+    print("Turning on the motors")
+
+    # Go to "working" position!
     print("Executing commands now")
-    robot.play_script(script_path="test.txt")  # Instruct the robot to execute these commands
+    robot.play(timeout=2, cmd="jmove", rel=0, j0=-90, vel=1200, cont=1)
+    robot.play(timeout=2, cmd="jmove", rel=0, j1=-160, vel=1200, cont=1)
+    robot.play(timeout=2, cmd="jmove", rel=0, j2=50, vel=1200, cont=1)
+    robot.play(timeout=2, cmd="jmove", rel=0, j3=-140, vel=1200, cont=1)
 
 robot.close()  # Always close the socket when you are done :)
+print("Script is over now")
