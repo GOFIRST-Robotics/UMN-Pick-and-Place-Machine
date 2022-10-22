@@ -38,6 +38,7 @@ def pickup_next_part():
 
 
 next(csvReader)  # We want to skip the first row of the .csv file since it is just the column labels
+instructions.write("{" + f'"cmd":"motor", "motor":1' + "}\n")
 
 for row in csvReader:
     pickup_next_part()
@@ -56,7 +57,7 @@ if not robot.connect(robot_ip_address):  # (Attempt to) Connect to the robot ser
     print("ERROR: Could not find the dorna2 robot at port:", robot_ip_address)
     print("Stopping the script now")
 else:
-    print("Successfully connected to the dorna2 at port:", robot_ip_address, "!")
+    print("Successfully connected to the dorna2 at port:", robot_ip_address)
     print("Executing commands now")
     robot.play_script(script_path="instructions.txt")  # Instruct the robot to execute these commands
 robot.close()  # Always close the socket when you are done :)

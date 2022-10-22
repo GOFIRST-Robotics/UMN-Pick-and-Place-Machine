@@ -1,3 +1,4 @@
+{"cmd":"motor", "motor":1}
 {"cmd":"lmove", "x":0, "y":300, "rel":0, "vel":100}
 {"cmd":"lmove", "z":50, "rel":0, "vel":100}
 {"cmd":"output", "out0":1}

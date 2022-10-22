@@ -7,7 +7,7 @@ if not robot.connect(robot_ip_address):  # (Attempt to) Connect to the robot ser
     print("ERROR: Could not find the dorna2 robot at port:", robot_ip_address)
     print("Stopping the script now")
 else:
-    print("Successfully connected to the dorna2 at port:", robot_ip_address, "!")
+    print("Successfully connected to the dorna2 at port:", robot_ip_address)
     print("Executing commands now")
     robot.play_script(script_path="test.txt")  # Instruct the robot to execute these commands
 
