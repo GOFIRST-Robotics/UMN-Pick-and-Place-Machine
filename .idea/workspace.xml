@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85557a18-4ce9-4dfe-ac8c-42ada0917548" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/robotArm/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/robotArm/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="85557a18-4ce9-4dfe-ac8c-42ada0917548" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +38,28 @@
       <recent name="$PROJECT_DIR$/robotArm" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.dorna2_connection_test">
+    <configuration name="dorna2_connection_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UMN-Pick-and-Place-Machine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/robotArm" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/robotArm/dorna2_connection_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UMN-Pick-and-Place-Machine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dorna2_connection_test" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
