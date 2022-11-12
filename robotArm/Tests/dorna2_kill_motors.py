@@ -13,19 +13,8 @@ else:
         robot.set_alarm(0)
         print("Disabling the alarm")
 
-    robot.set_motor(1)  # Turn on the motors
-    print("Turning on the motors")
-
-    # Got back to our home/origin
-    print("Executing commands now")
-    robot.play(timeout=2, cmd="jmove", rel=1, j3=150, vel=120, accel=120)
-    print(robot.recv())
-    robot.play(timeout=2, cmd="jmove", rel=1, j2=-50, vel=120, accel=120)
-    print(robot.recv())
-    robot.play(timeout=2, cmd="jmove", rel=1, j1=160, vel=120, accel=120)
-    print(robot.recv())
-    robot.play(timeout=2, cmd="jmove", rel=1, j0=90, vel=120, accel=120)
-    print(robot.recv())
+    robot.set_motor(0)  # Turn on the motors
+    print("Disabling the motors")
 
 robot.close()  # Always close the socket when you are done :)
 print("Script is over now")
